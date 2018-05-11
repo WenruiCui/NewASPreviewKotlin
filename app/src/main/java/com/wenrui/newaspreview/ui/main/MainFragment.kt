@@ -40,9 +40,12 @@ class MainFragment : Fragment(), Observer<User> {
 
     }
 
+    //使用with切换作用域
     override fun onChanged(t: User?) {
-        view!!.message.text = (t?.id ?: "").toString()
-        activity?.toast("aaaa")
+        with(view) {
+            this!!.message.text = (t?.id ?: "").toString()
+            activity?.toast("aaaa")
+        }
     }
 
 }
